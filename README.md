@@ -1,7 +1,7 @@
 # csr.h
 
 A single-header, dependency-free C interface for reading and writing RISC-V
-Control and Status Registers (CSRs) from freestanding C code, bootloaders,
+Control and Status Registers (CSRs) from freestanding C code,    bootloaders,
 kernels, and other bare-metal targets where you don't have (and don't want)
 a libc.
 
@@ -73,12 +73,13 @@ do that read-modify-write as a single atomic hardware instruction.
 ```c
 #include "csr.h"
 
-uintptr_t hartid;
+uint64_t hartid;
 CSRR(hartid, MHARTID);        // hartid now holds this core's ID
-
+...
+uintptr_t trap_handler_addr = ...;
 CSRW(MTVEC, trap_handler_addr);   // point mtvec at your trap handler
 
-uintptr_t enable_bit = (1UL << 3); // e.g. machine interrupt enable
+uint64_t enable_bit = (1UL << 3); // e.g. machine interrupt enable
 CSRS(MSTATUS, enable_bit);    // set just that bit, leave the rest alone
 CSRC(MSTATUS, enable_bit);    // clear it again, leave the rest alone
 ```
