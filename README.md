@@ -1,7 +1,7 @@
 # csr.h
 
 A single-header, dependency-free C interface for reading and writing RISC-V
-Control and Status Registers (CSRs) from freestanding C code — bootloaders,
+Control and Status Registers (CSRs) from freestanding C code, bootloaders,
 kernels, and other bare-metal targets where you don't have (and don't want)
 a libc.
 
