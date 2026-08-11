@@ -20,3 +20,4 @@
     asm volatile ("csrs " CSR_REG ", %0" : : "r" (REG))   // atomically set bits in CSR per REG mask
 #define CSRC(CSR_REG, REG) \
     asm volatile ("csrc " CSR_REG ", %0" : : "r" (REG))   // atomically clear bits in CSR per REG mask
+
